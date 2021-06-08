@@ -1,3 +1,8 @@
+# codecov
+env:
+  global:
+    - CODECOV_TOKEN="d65f362d-4bac-4ea9-8b46-d9d8a1eef28f"
+
 # используем язык java. Travis CI поддерживает другие языки тоже.
 language: java
 jdk:
@@ -18,7 +23,3 @@ notifications:
       - anton415@gmail.com
     on_success: never # default: change
     on_failure: always # default: always
-
-env:
-  global:
-    - CODECOV_TOKEN="d65f362d-4bac-4ea9-8b46-d9d8a1eef28f"
