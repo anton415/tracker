@@ -30,4 +30,20 @@ public class PointTest {
         double dist = a.distance(b);
         assertThat(dist, is(5.0));
     }
+
+    @Test
+    public void when000to000then0() {
+        Point a = new Point(0, 0, 0);
+        Point b = new Point(0, 0, 0);
+        double dist = a.distance3d(b);
+        assertThat(dist, is(0.0));
+    }
+
+    @Test
+    public void when000to003then3() {
+        Point a = new Point(0, 0, 0);
+        Point b = new Point(0, 0, 3);
+        double dist = a.distance3d(b);
+        assertThat(dist, is(3.0));
+    }
 }
