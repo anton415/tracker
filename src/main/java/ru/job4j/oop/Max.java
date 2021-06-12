@@ -6,17 +6,12 @@ public class Max {
     }
 
     public static int max(int first, int second, int third) {
-        int maxOfTwoNumber = Math.max(first, second);
-        return Math.max(maxOfTwoNumber, third);
+        int maxOfTwoNumber = max(first, second);
+        return max(maxOfTwoNumber, third);
     }
-
-    public static int max(int... n) {
-        int max = n[0];
-        for (int j : n) {
-            if (j > max) {
-                max = j;
-            }
-        }
-        return max;
+    public static int max(int first, int second, int third, int four) {
+        int maxOfTwoNumber = max(first, second);
+        int maxOfThreeNumber = max(maxOfTwoNumber, third);
+        return max(maxOfThreeNumber, four);
     }
 }

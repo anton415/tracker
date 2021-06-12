@@ -42,9 +42,9 @@ public class MaxTest {
     }
 
     @Test
-    public void whenMax1To5Then5() {
-        int result = Max.max(1, 2, 3, 4, 5);
-        int expected = 5;
+    public void whenMax1To4Then4() {
+        int result = Max.max(1, 2, 3, 4);
+        int expected = 4;
         Assert.assertEquals(result, expected);
     }
 }
