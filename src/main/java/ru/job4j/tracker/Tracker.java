@@ -33,7 +33,7 @@ public class Tracker {
      * @return все заявки
      */
     public Item[] findAll() {
-        return items;
+        return Arrays.copyOf(items, size);
     }
 
     /**
