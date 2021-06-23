@@ -11,10 +11,8 @@ public class Tracker {
         int index = indexOf(id);
         boolean rsl = index != -1;
         if (rsl) {
-            int start = index + 1;
-            int length = size - index;
-            System.arraycopy(items, start, items, index, length);
-            items[size - 1] = null;
+            System.arraycopy(items, index + 1, items, index, size - index - 1);
+            items[size] = null;
             size--;
         }
         return rsl;
