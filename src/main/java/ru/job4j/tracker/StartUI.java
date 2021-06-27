@@ -74,22 +74,17 @@ public class StartUI {
     }
 
     private void editItem(Scanner scanner, Tracker tracker) {
+        System.out.println("=== Edit item ====");
         System.out.print("Enter id: ");
-        String id = scanner.nextLine();
-        if (isIdEnterCorrect(id)) {
-            Item item = tracker.findById(Integer.parseInt(id));
-            if (item != null) {
-                System.out.println(item);
-                System.out.print("Enter new name: ");
-                String name = scanner.nextLine();
-                tracker.replace(Integer.parseInt(id), new Item(name));
-            } else {
-                System.out.println("Error 404. Item not found!");
-            }
+        int id = Integer.parseInt(scanner.nextLine());
+        System.out.print("Enter name: ");
+        String name = scanner.nextLine();
+        Item item = new Item(name);
+        if (tracker.replace(id, item)) {
+            System.out.println("Заявка изменена успешно.");
         } else {
-            System.out.println("Error 404. Id not found!");
+            System.out.println("Ошибка замены заявки.");
         }
-
     }
 
     private void showAllItems(Tracker tracker) {
