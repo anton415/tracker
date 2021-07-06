@@ -20,7 +20,7 @@ public class ValidateInput implements Input {
         int value = -1;
         do {
             String rsl = in.askStr(question);
-            if (!isNumber(rsl)) {
+            if (!rsl.chars().allMatch( Character::isDigit )) {
                 System.out.println("Please enter validate data again.");
                 continue;
             }
@@ -28,17 +28,5 @@ public class ValidateInput implements Input {
             invalid = false;
         } while (invalid);
         return value;
-    }
-
-    private boolean isNumber(String value) {
-        boolean rsl = true;
-        char[] check = value.toCharArray();
-        for (char num : check) {
-            if (num < 48 || num > 57) {
-                rsl = false;
-                break;
-            }
-        }
-        return rsl;
     }
 }
