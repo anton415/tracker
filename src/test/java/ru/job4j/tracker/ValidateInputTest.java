@@ -29,14 +29,15 @@ public class ValidateInputTest {
         assertThat(selected, is(1));
     }
 
-    @Test(expected = ArrayIndexOutOfBoundsException.class)
+    @Test
     public void whenNegativeNumberInput() {
         Output out = new StubOutput();
         Input in = new StubInput(
-                new String[] {"-1"}
+                new String[] {"-1", "1"}
         );
         ValidateInput input = new ValidateInput(out, in);
-        input.askInt("Enter menu:");
+        int selected = input.askInt("Enter menu:");
+        assertThat(selected, is(1));
     }
 
     @Test
@@ -46,6 +47,9 @@ public class ValidateInputTest {
                 new String[] {"1", "2"}
         );
         ValidateInput input = new ValidateInput(out, in);
-        input.askInt("Enter menu:");
+        int selectedOne = input.askInt("Enter menu:");
+        assertThat(selectedOne, is(1));
+        int selectedTwo = input.askInt("Enter menu:");
+        assertThat(selectedTwo, is(2));
     }
 }
