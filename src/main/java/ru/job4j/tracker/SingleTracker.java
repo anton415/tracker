@@ -1,10 +1,15 @@
 package ru.job4j.tracker;
 
 public final class SingleTracker {
-    private static Tracker tracker = new Tracker();
+    private static Tracker tracker = null;
 
-    /* TODO реализовать singleton */
-    public static Tracker getInstance() {
+    private SingleTracker() {
+    }
+
+    public static Tracker getTracker() {
+        if (tracker == null) {
+            tracker = new Tracker();
+        }
         return tracker;
     }
 
@@ -32,5 +37,4 @@ public final class SingleTracker {
         return tracker.delete(id);
     }
 
-    /* TODO Остальные методы из класса Tracker. */
 }
