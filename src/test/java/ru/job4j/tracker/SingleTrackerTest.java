@@ -10,7 +10,7 @@ public class SingleTrackerTest {
     public void whenAskSingleTrackerTwiceThenGetOnlyOneTracker() {
         Tracker firstTracker = SingleTracker.getTracker();
         Tracker secondTracker = SingleTracker.getTracker();
-        assertEquals(firstTracker, secondTracker);
+        assertSame(firstTracker, secondTracker);
     }
 
 }
