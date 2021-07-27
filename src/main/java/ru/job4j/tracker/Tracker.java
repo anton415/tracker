@@ -1,20 +1,17 @@
 package ru.job4j.tracker;
 
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.List;
 
 public class Tracker {
     private final ArrayList<Item> items = new ArrayList();
-//    private final Item[] items = new Item[100];
     private int ids = 1;
-    private int size = 0;
 
     public boolean delete(int id) {
         int index = indexOf(id);
         boolean rsl = index != -1;
         if (rsl) {
-            items.set(index, null);
-            size--;
+            items.remove(indexOf(id));
         }
         return rsl;
     }
@@ -31,8 +28,8 @@ public class Tracker {
 
     private int indexOf(int id) {
         int rsl = -1;
-        for (int index = 0; index < size; index++) {
-            if (items.get(index) != null && items.get(index).getId() == id) {
+        for (int index = 0; index < items.size(); index++) {
+            if (items.get(index).getId() == id) {
                 rsl = index;
                 break;
             }
@@ -44,8 +41,8 @@ public class Tracker {
      * получение списка всех заявок
      * @return все заявки
      */
-    public Item[] findAll() {
-        return (Item[]) items.toArray();
+    public List<Item> findAll() {
+        return List.copyOf(items);
     }
 
     /**
@@ -53,20 +50,19 @@ public class Tracker {
      * @param key имя
      * @return список заявок
      */
-    public Item[] findByName(String key) {
-        Item[] rsl = new Item[size];
-        int rslIndex = 0;
-        for (int index = 0; index < size; index++) {
-            if (key.equals(items.get(index).getName())) {
-                rsl[rslIndex++] = items.get(index);
+    public List<Item> findByName(String key) {
+        List<Item> rsl = new ArrayList<>();
+        for (Item item : items) {
+            if (key.equals(item.getName())) {
+                rsl.add(item);
             }
         }
-        return Arrays.copyOf(rsl, rslIndex);
+        return rsl;
     }
 
     public Item add(Item item) {
         item.setId(ids++);
-        items.add(size++, item);
+        items.add(items.size(), item);
         return item;
     }
 
