@@ -11,7 +11,7 @@ public class Tracker {
         int index = indexOf(id);
         boolean rsl = index != -1;
         if (rsl) {
-            items.remove(indexOf(id));
+            items.remove(id - 1);
         }
         return rsl;
     }
@@ -62,7 +62,7 @@ public class Tracker {
 
     public Item add(Item item) {
         item.setId(ids++);
-        items.add(items.size(), item);
+        items.add(item);
         return item;
     }
 
