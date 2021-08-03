@@ -21,13 +21,13 @@ public class ItemTest {
 
     @Test
     public void whenSortUp() {
-        Collections.sort(items, new Item());
+        Collections.sort(items, new SortItem());
         System.out.println(items);
     }
 
     @Test
     public void whenSortDown() {
-        Collections.reverse(items);
+        Collections.sort(items, new ReversedItem());
         System.out.println(items);
     }
 

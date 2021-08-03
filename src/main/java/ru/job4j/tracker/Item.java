@@ -1,9 +1,8 @@
 package ru.job4j.tracker;
 
 import java.time.LocalDateTime;
-import java.util.Comparator;
 
-public class Item implements Comparator<Item> {
+public class Item {
     private int id;
     private String name;
     private LocalDateTime created = LocalDateTime.now();
@@ -48,15 +47,5 @@ public class Item implements Comparator<Item> {
 
     public LocalDateTime getCreated() {
         return created;
-    }
-
-    @Override
-    public int compare(Item o1, Item o2) {
-        return o1.getName().compareTo(o2.getName());
-    }
-
-    @Override
-    public Comparator<Item> reversed() {
-        return Comparator.super.reversed();
     }
 }
