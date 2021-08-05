@@ -19,6 +19,26 @@ public class JobTest {
     }
 
     @Test
+    public void whenCompatorByNameAndProrityWithSameName() {
+        Comparator<Job> cmpNamePriority = new JobDescByNameDown().thenComparing(new JobDescByPriorityDown());
+        int rsl = cmpNamePriority.compare(
+                new Job("Impl task", 0),
+                new Job("Impl task", 1)
+        );
+        assertThat(rsl, greaterThan(0));
+    }
+
+    @Test
+    public void whenCompactorByNameAndPriorityWithSameNameAndDifferentPriority() {
+        Comparator<Job> cmpNamePriority = new JobDescByNameDown().thenComparing(new JobDescByPriorityDown());
+        int rsl = cmpNamePriority.compare(
+                new Job("Impl task", 1),
+                new Job("Impl task", 0)
+        );
+        assertThat(rsl, lessThan(0));
+    }
+
+    @Test
     public void whenComparatorByNameUp() {
         Comparator<Job> comparator = new JobDescByNameUp();
         int result = comparator.compare(
