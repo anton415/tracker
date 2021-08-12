@@ -8,12 +8,10 @@ public class College {
         student.setFio("Anton");
         student.setGroup("123");
         student.setDate(LocalDate.of(2020, 9, 1));
-        System.out.println("Student info: " +
-                        student.getFio()
-                        + " " +
-                        student.getGroup()
-                        + " " +
-                        student.getDate()
+        System.out.println(
+                "Student info: " + student.getFio()
+                        + " " + student.getGroup()
+                        + " " + student.getDate()
                 );
     }
 }

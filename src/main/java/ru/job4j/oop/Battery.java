@@ -26,7 +26,8 @@ public class Battery {
     }
 
     /**
-     * Этот метод должен списывать заряд из батареи у кого вызывали метод exchange и добавить к объекту another.
+     * Этот метод должен списывать заряд из батареи у кого вызывали метод exchange и добавить к
+     * объекту another.
      * @param another - другая батарейка.
      */
     public void exchange(Battery another) {

@@ -10,7 +10,8 @@ import static org.junit.Assert.assertThat;
 public class JobTest {
     @Test
     public void whenCompatorByNameAndPrority() {
-        Comparator<Job> cmpNamePriority = new JobDescByNameDown().thenComparing(new JobDescByPriorityDown());
+        Comparator<Job> cmpNamePriority = new JobDescByNameDown()
+                .thenComparing(new JobDescByPriorityDown());
         int rsl = cmpNamePriority.compare(
                 new Job("Impl task", 0),
                 new Job("Fix bug", 1)
@@ -20,7 +21,8 @@ public class JobTest {
 
     @Test
     public void whenCompatorByNameAndProrityWithSameName() {
-        Comparator<Job> cmpNamePriority = new JobDescByNameDown().thenComparing(new JobDescByPriorityDown());
+        Comparator<Job> cmpNamePriority = new JobDescByNameDown()
+                .thenComparing(new JobDescByPriorityDown());
         int rsl = cmpNamePriority.compare(
                 new Job("Impl task", 0),
                 new Job("Impl task", 1)
@@ -30,7 +32,8 @@ public class JobTest {
 
     @Test
     public void whenCompactorByNameAndPriorityWithSameNameAndDifferentPriority() {
-        Comparator<Job> cmpNamePriority = new JobDescByNameDown().thenComparing(new JobDescByPriorityDown());
+        Comparator<Job> cmpNamePriority = new JobDescByNameDown()
+                .thenComparing(new JobDescByPriorityDown());
         int rsl = cmpNamePriority.compare(
                 new Job("Impl task", 1),
                 new Job("Impl task", 0)
