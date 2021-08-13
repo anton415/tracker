@@ -5,13 +5,28 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Главный сервис.
+ */
 public class BankService {
+    /**
+     * Список пользователей и их аккаунты.
+     */
     private Map<User, List<Account>> users = new HashMap<>();
 
+    /**
+     * Добавление пользователя.
+     * @param user - пользователь.
+     */
     public void addUser(User user) {
         users.putIfAbsent(user, new ArrayList<>());
     }
 
+    /**
+     * Добавление аккаунта.
+     * @param passport - паспорт пользователя.
+     * @param account - аккаунт.
+     */
     public void addAccount(String passport, Account account) {
         User user = findByPassport(passport);
         if (user != null) {
@@ -22,6 +37,11 @@ public class BankService {
         }
     }
 
+    /**
+     * Поиск пользователя по паспорту.
+     * @param passport - паспорт.
+     * @return - пользователь.
+     */
     public User findByPassport(String passport) {
         for (User user : users.keySet()) {
             if (passport.equals(user.getPassport())) {
@@ -31,6 +51,12 @@ public class BankService {
         return null;
     }
 
+    /**
+     * Поиск аккаунта по реквизиту.
+     * @param passport - паспорт.
+     * @param requisite - реквизит.
+     * @return - аккаунт.
+     */
     public Account findByRequisite(String passport, String requisite) {
         User user = findByPassport(passport);
         if (null != user) {
@@ -43,6 +69,15 @@ public class BankService {
         return null;
     }
 
+    /**
+     * Перевод денег.
+     * @param srcPassport - паспорт отправителя.
+     * @param srcRequisite - реквизит отправителя.
+     * @param destPassport - паспорт получателя.
+     * @param destRequisite - реквизит получателя.
+     * @param amount - сумма перевода.
+     * @return - успешный или не успешный перевод.
+     */
     public boolean transferMoney(String srcPassport, String srcRequisite,
                                  String destPassport, String destRequisite, double amount) {
         boolean rsl = false;
