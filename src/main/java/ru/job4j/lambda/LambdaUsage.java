@@ -14,7 +14,7 @@ public class LambdaUsage {
 
         Comparator<Attachment> comparator = (left, right) -> {
             System.out.println("compare - " + left.getSize() + " : " + right.getSize());
-            return right.getSize() - left.getSize();
+            return Integer.compare(right.getSize(), left.getSize());
         };
 
         attachments.sort(comparator);
