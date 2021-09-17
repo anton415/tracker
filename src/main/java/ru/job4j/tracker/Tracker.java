@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Tracker {
-    private final ArrayList<Item> items = new ArrayList();
+    private final ArrayList<Item> items = new ArrayList<>();
     private int ids = 1;
 
     public boolean delete(int id) {
