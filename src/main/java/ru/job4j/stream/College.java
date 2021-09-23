@@ -13,13 +13,9 @@ public class College {
 
     public Optional<Student> findByAccount(String account) {
         Optional<Student> rsl = Optional.empty();
-        for (Student s : students.keySet()) {
-            if (account.equals(s.getAccount())) {
-                rsl = Optional.of(s);
-                break;
-            }
-        }
-        return rsl;
+        return rsl.stream()
+                .filter(student -> account.equals(student.getAccount()))
+                .findFirst();
     }
 
     public Optional<Subject> findBySubjectName(String account, String name) {
@@ -27,12 +23,9 @@ public class College {
         Optional<Student> s = findByAccount(account);
         if (s.isPresent()) {
             Set<Subject> subjects = students.get(s.get());
-            for (Subject subj : subjects) {
-                if (name.equals(subj.getName())) {
-                    rsl = Optional.of(subj);
-                    break;
-                }
-            }
+            return subjects.stream()
+                    .filter(subject -> name.equals(subject.getName()))
+                    .findFirst();
         }
         return rsl;
     }
