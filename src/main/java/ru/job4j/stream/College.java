@@ -12,8 +12,7 @@ public class College {
     }
 
     public Optional<Student> findByAccount(String account) {
-        Optional<Student> rsl = Optional.empty();
-        return rsl.stream()
+        return students.keySet().stream()
                 .filter(student -> account.equals(student.getAccount()))
                 .findFirst();
     }
