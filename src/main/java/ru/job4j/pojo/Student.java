@@ -3,9 +3,9 @@ package ru.job4j.pojo;
 import java.time.LocalDate;
 
 public class Student {
-    private String fio;             // ФИО
-    private String group;           // группа
-    private LocalDate date;     // дата поступления
+    private String fio;
+    private String group;
+    private LocalDate date;
 
     public String getFio() {
         return fio;
