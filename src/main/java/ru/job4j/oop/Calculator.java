@@ -31,9 +31,6 @@ public class Calculator {
     }
 
     public int sumAllOperation(int y) {
-        int sum = sum(y);
-        int minus = minus(y);
-        int divide = new Calculator().divide(y);
-        return sum + minus + divide;
+        return sum(y) + minus(y) + divide(y);
     }
 }
